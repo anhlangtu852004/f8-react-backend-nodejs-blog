@@ -9,6 +9,9 @@ const app = express();
 // import routes
 const routes = require("./routes/index");
 
+// import file de connect to server
+const db = require("./config/db/index");
+db.connect();
 //http logger trong console log
 // app.use(morgan("combined"));
 
@@ -20,6 +23,8 @@ app.use(express.static(path.join(__dirname, "public")));
 //midle waee
 app.use(express.urlencoded({ extended: true })); //dung middle ware dde lay du lieu trong body gui tu client bang form, thang express tich hop san urlencoded, khong thoi phai dung body-parser
 app.use(express.json()); //dung middle ware dde lay du lieu gui tu client bang java jay php hay javascript
+
+//connect server
 
 //template engine
 app.engine("hbs", engine({ extname: ".hbs" }));
