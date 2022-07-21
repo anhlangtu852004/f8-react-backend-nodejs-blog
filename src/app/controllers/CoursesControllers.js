@@ -27,7 +27,7 @@ class CoursesControllers {
     // res.send("success");
     // const course = new Course({ name: "nai hoc moi" });
     const course = new Course(req.body);
-    course.save();
+    course.save().then(() => res.redirect("/courses"));
   }
 }
 
